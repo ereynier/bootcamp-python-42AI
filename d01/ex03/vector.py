@@ -3,7 +3,7 @@ class Vector:
         self.size = 0
         self.values = []
         if isinstance(arg, list):
-            if all(isinstance(x, float) for x in arg):
+            if all(isinstance(x, (float)) for x in arg):
                 self.size = len(arg)
                 self.values = arg
         elif isinstance(arg, int):
