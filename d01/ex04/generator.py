@@ -1,11 +1,11 @@
 import time
 
+
 def generator(txt, sep=" ", option=None):
     '''Option is an optional arg, sep is mandatory'''
-    if (not isinstance(txt, str) or (not isinstance(option, str) 
-            and option is not None)
-            and (option != "shuffle" and option != "unique"
-            and option != "ordered")):
+    if (not isinstance(txt, str) or
+            (not isinstance(option, str) and option is not None)
+            and (option != "shuffle" and option != "unique" and option != "ordered")):
         print("ERROR")
         return
     i = 0
@@ -26,10 +26,9 @@ def generator(txt, sep=" ", option=None):
     elif (option == "unique"):
         lst = list(set(lst))
 
-
     for i in lst:
         yield(i)
-    
+
 
 text = "Salut comment allez vous par ici ? ici comment"
 for word in generator(text, " ", "shuffle"):
