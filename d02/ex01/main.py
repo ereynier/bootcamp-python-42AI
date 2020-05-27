@@ -12,9 +12,11 @@ def what_are_the_vars(*args, **kwargs):
             setattr(out, i, kwargs.get(i, None))
     return (out)
 
+
 class ObjectC(object):
     def __init__(self):
         pass
+
 
 def doom_printer(obj):
     if obj is None:
@@ -26,6 +28,7 @@ def doom_printer(obj):
             value = getattr(obj, attr)
             print("{}: {}".format(attr, value))
     print("end")
+
 
 if __name__ == "__main__":
     obj = what_are_the_vars(7)

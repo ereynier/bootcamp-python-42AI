@@ -1,5 +1,6 @@
 class CsvReader():
-    def __init__(self, filename=None, sep=',', header=False, skip_top=0, skip_bottom=0):
+    def __init__(self, filename=None, sep=',', header=False,
+                 skip_top=0, skip_bottom=0):
         self.filename = filename
         self.sep = sep
         self.header = header
@@ -23,7 +24,7 @@ class CsvReader():
                 else:
                     self.data.append(Lines[i].rstrip('\n').split(self.sep))
             return (self)
-        except:
+        except Exception:
             return (None)
 
     def __exit__(self, type, value, traceback):
@@ -33,9 +34,10 @@ class CsvReader():
         if (self.header):
             return (self.head)
         return (None)
-    
+
     def getdata(self):
         return (self.data)
+
 
 if __name__ == "__main__":
     with CsvReader('good.csv', ',', True, 0, 1) as file:

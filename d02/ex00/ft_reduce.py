@@ -6,7 +6,7 @@ def ft_reduce(func, iter):
         for i in range(len(iter) - 1):
             try:
                 ret = func(ret, iter[i + 1])
-            except:
+            except Exception:
                 print("can't use function with {}".format(i))
                 return (None)
     return (ret)

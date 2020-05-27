@@ -2,11 +2,12 @@ import time
 from random import randint
 import getpass
 
+
 def log(func):
     def inner1(*args, **kwargs):
         t0 = time.time()
         ret = func(*args, **kwargs)
-        dt = (time.time() - t0 ) * 1000
+        dt = (time.time() - t0) * 1000
         if (dt > 1000):
             dt = dt / 1000
             t = "{:.3f} s".format(dt)
@@ -14,11 +15,13 @@ def log(func):
             t = "{:.3f} ms".format(dt)
         name = (' '.join((func.__name__).split('_'))).title()
         log_file = open("machine.log", "a+")
-        log_file.write("({})Running: {: <20} [ exec-time = {: <8} ]\n".format(getpass.getuser(), name, t))
+        log_file.write("({})Running: {: <20} [ exec-time = {: <8} ]\n".format(
+            getpass.getuser(), name, t))
         log_file.close()
 
         return ret
     return inner1
+
 
 class CoffeeMachine():
 
@@ -31,7 +34,7 @@ class CoffeeMachine():
         else:
             print("Please add water!")
             return False
-        
+
     @log
     def boil_water(self):
         return "boiling..."

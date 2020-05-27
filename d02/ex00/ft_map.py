@@ -6,14 +6,14 @@ def ft_map(func, iter):
         for i in iter:
             try:
                 out.append(func(i))
-            except:
+            except Exception:
                 print("can't use function with {}".format(i))
                 return ([])
     return (out)
 
 
 r = ["A", "B", "C", "D"]
-r2 = [1, 2 , 3, -4]
+r2 = [1, 2, 3, -4]
 
 print(ft_map((lambda x: x**2), r2))
 print(ft_map((lambda x: x**2), r))
